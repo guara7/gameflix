@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 class Game:
     def __init__(self,nome,categoria,console):
@@ -27,6 +27,6 @@ def criar1():
     console = request.form['console']
     novoJogo = Game(nome,categoria,console)
     listaJogos.append(novoJogo)
-    return render_template('lista.html', titulo='Games',jogos=listaJogos)
+    return redirect('/')
 
 app.run(debug=True)
